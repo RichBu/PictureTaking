@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Camera Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- link to Materialize -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <!-- link to Materialize for fonts and icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- <script>
+        z = { analyticsID: "UA-2087880-2", themePath: "/wp-content/themes/punky", pluginPath: "libs/curl/src/curl/plugin/", domain: "davidwalsh.name", loadSidebar: !(-1 != navigator.userAgent.toLowerCase().indexOf("googlebot")), d: document, w: this }, z.baseUrl = z.themePath + "/js/", location.hostname.indexOf(z.domain) < 0 && (z.isDebug = 1, z.analyticsID = 0), z.moo = z.baseUrl + "MooTools-Core-1.6.0.js"; z.analyticsID && function () { !function (e, a, t, n, c, s, i) { e.GoogleAnalyticsObject = c, e[c] = e[c] || function () { (e[c].q = e[c].q || []).push(arguments) }, e[c].l = 1 * new Date, s = a.createElement(t), i = a.getElementsByTagName(t)[0], s.async = 1, s.src = n, i.parentNode.insertBefore(s, i) }(z.w, z.d, "script", "//www.google-analytics.com/analytics.js", "ga"), ga("create", z.analyticsID, { siteSpeedSampleRate: 50 }), ga("set", "forceSSL", !0), ga("send", "pageview"), ga("set", "nonInteraction", !0) }();</script>
+
+    <script>
+        window.ORIGINAL_JSON = window.JSON;
+    </script> -->
+
+    <!--
+	Ideally these elements aren't created until it's confirmed that the 
+	client supports video/camera, but for the sake of illustrating the 
+	elements involved, they are created with markup (not JavaScript)
+-->
+    <video id="video" width="640" height="480" autoplay></video>
+    <button id="snap">Snap Photo</button>
+    <canvas id="canvas" width="640" height="480"></canvas>
+
+    <!-- <script>
+        // Grab elements, create settings, etc.
+        var video = document.getElementById('video');
+
+        // Get access to the camera!
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+            // Not adding `{ audio: true }` since we only want video now
+            navigator.mediaDevices.getUserMedia({ video: true }).then(function (stream) {
+                video.src = window.URL.createObjectURL(stream);
+                video.play();
+            });
+        }
+    </script> -->
+
+    <script>
+        var video = document.getElementById('video');
+        //        navigator.getUserMedia(                         
+        navigator.mediaDevices.getUserMedia(
+            // Options
+            {
+                video: true
+            }).then(
+                // Success Callback
+                function (mediaStream) {
+                    // Create an object URL for the video stream and
+                    // set it as src of our HTLM video element.
+                    video.srcObject = mediaStream;
+                    // Play the video element to show the stream to the user.
+                    video.onloadedmetadata = function (e) {
+                        video.play();
+                    };
+                }).catch(
+                    // Error Callback
+                    function (err) {
+                        // Most common errors are PermissionDenied and DevicesNotFound.
+                        console.error(err);
+
+                    }
+                );
+
+
+    </script>
+
+</body>
+
+</html>

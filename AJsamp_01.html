@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <meta charset="utf-8" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Pnil World Chatroom</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <!-- link to style.css -->
+                <link rel="stylesheet" type="text/css"  href="style.css">
+            <!-- link to Materialize -->
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+            <!-- link to Materialize for fonts and icons -->
+                <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <!-- momentJS Link -->
+                <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/locale/es-us.js"></script> -->
+            <!-- Firebase Reference -->
+                <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+
+    </head>
+    <body>
+        
+        <div class="container">
+
+            <!-- Initial log in screen Section, hides after logged in -->
+            <div id= "message">
+                <div id="space" class="hide">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+
+                <div>
+                    <div id="populationDiv2" class="row">
+                        <center>
+                            <div class="col s12"> Population:
+                                <strong>
+                                    <span id="connectedNum2"></span>
+                                </strong>
+                            </div>
+                        </center>
+                    </div>
+                </div>    
+                <!-- When not logged in, this is all visible, else it is hidden -->
+                <ul>
+                    <li>
+                        <center><a id="btnLogin" class="pulse waves-effect waves-light btn" href="#">Login Anonymously</a></center>
+                        
+                    </li>
+
+                    <li>
+                        <center><a id="btnLogout" href="#" class="waves-effect waves-light btn hide">Logout</a></center>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Anonymous User ID display -->
+            <div class="hide" id="stuff">
+                <div id="headerDiv" class="row">
+                    <div class="col s12">
+                        <center><p>UserID: <span id="userID"></span></p></center>
+                    </div>
+                </div>
+                
+                <!-- Connnections Display on main page -->
+                <div id="populationDiv" class="row">
+                    <center>
+                        <div class="col s12">  Population:
+                            <strong>
+                                <span id="connectedNum"></span>
+                            </strong>
+                        </div>
+                    </center>
+                </div>
+
+                <!-- Where everything displays -->
+                <div class="row">
+                    <div class="col s12">
+                        <div id="chatBox">
+
+                        </div>
+                    </div>  
+                </div> 
+
+                <!-- Chat test input area and send message button -->
+                <div class="row">
+                    <div class="col s12">
+                        <div id="chatMessage">
+                            <center><input id="typeMessage" placeholder="Type Message Here!" type="text"></center>
+                                <center>
+                                    <a class="waves-effect waves-light btn" id="sendMessage">Send</a>
+                                </center>
+
+                                 <!-- File Button hidden in camera icon for media upload  -->
+                               <label for="fileButton">
+                                   <a class="btn-medium" id="addPhoto"><i class="material-icons">add_a_photo</i></a>
+                                   <input type="file" label="fileButton" id="fileButton">
+                               </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        <!-- closing container -->
+        </div>
+
+        <!-- Footer -->
+        
+            <footer>
+                <div class="footer-copyright">
+                    <div class="containerCopyright">
+                        <center> © Copyright 2018 -AnonymUS- All Rights Reserved. </center>
+                    </div>
+                </div>
+            </footer>
+    
+        <!-- link to jQuery -->
+            <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+        <!-- link to Materialize JS-->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+        <!-- link to app.js -->
+            <script src="app.js"></script>
+
+    </body>
+</html>
